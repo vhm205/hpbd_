@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^Happy-Birthday-To-My$ index2.html

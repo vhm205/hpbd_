@@ -1,0 +1,85 @@
+@media screen and (orientation: landscape) {
+	.img {
+		width: 35em;
+	}
+	h1 {
+		font-size: 50px;
+	}
+	.flame {
+		height:40px;
+		width:10px;
+		margin-left: 36.8%;
+   		margin-top: 3.2%;
+   		animation-delay: 0.1s;
+	}
+	.flame2 {
+		height:40px;
+		width:10px;
+		margin-left: 43%;
+   		margin-top: 3.2%;
+   		animation-delay: 0.6s;
+	}
+	.flame3 {
+		height:40px;
+		width:10px;
+		margin-left: 49.1%;
+   		margin-top: 0.2%;
+	}
+	.flame4 {
+		height:40px;
+		width:10px;
+		margin-left: 55.1%;
+   		margin-top: 3.2%;
+   		animation-delay: 0.9s;
+	}
+	.flame5 {
+		height:40px;
+		width:10px;
+		margin-left: 61.2%;
+   		margin-top: 3.2%;
+   		animation-delay: 0.4s;
+	}
+}
+
+@media screen and (orientation: portrait) {
+	.img {
+		width: 60em;
+	}
+	h1 {
+   		font-size: 100px;
+	}
+	.flame {
+		height:45px;
+		width:15px;
+		margin-left: 27.5%;
+   		margin-top: 7.8%;
+   		animation-delay: 0.1s;
+	}
+	.flame2 {
+		height:45px;
+		width:15px;
+		margin-left: 38%;
+   		margin-top: 7.8%;
+   		animation-delay: 0.6s;
+	}
+	.flame3 {
+		height:45px;
+		width:15px;
+		margin-left: 48.5%;
+   		margin-top: 3%;
+	}
+	.flame4 {
+		height:45px;
+		width:15px;
+		margin-left: 58.9%;
+   		margin-top: 7.8%;
+   		animation-delay: 0.9s;
+	}
+	.flame5 {
+		height:45px;
+		width:15px;
+		margin-left: 69.4%;
+   		margin-top: 7.8%;
+   		animation-delay: 0.4s;
+	}
+}
