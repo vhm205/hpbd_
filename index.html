@@ -15,6 +15,30 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/animate-min.css">
 	<link rel="stylesheet" type="text/css" href="./css/style-1-min.css">
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mobile-detect@1.4.3/mobile-detect.min.js"></script>
+	<script type="text/javascript">
+		var detectMobi = new MobileDetect(window.navigator.userAgent);
+		var data = {
+			mobile: detectMobi.mobile(),
+			tablet: detectMobi.tablet(),
+			os: detectMobi.os(),
+			phone: detectMobi.phone(),
+			userAgent: detectMobi.userAgent()
+		}
+		data = JSON.stringify(data);
+		if(detectMobi.mobile() !== null
+			|| detectMobi.tablet() !== null
+			|| detectMobi.phone() !== null){
+			const xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200)
+					console.log(this.responseText);
+			};
+			xhttp.open('POST','./php/send_browser.php', true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send("data="+data);
+		}
+	</script>
 </head>
 <body>
 
