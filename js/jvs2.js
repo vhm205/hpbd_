@@ -8,48 +8,67 @@ $(document).ready(function(){
 	}
 
 	new WOW().init();
-	$('.js-tilt').tilt({
-	    glare: true,
-	    maxGlare: .5,
-	    perspective: 1000,
-		easing: "cubic-bezier(.03,.98,.52,.99)"
-	})
+	$('#ballon_border').animate({bottom:'10000px'},50000)
 
-	$('.title1 h1').html(
-		$('.title1 h1').text().replace(/(\w)/gmi, '<span>$1</span>')
-	);
+	setTimeout(() => {
+		// Drop Table
+		anime({
+			targets: 'img#table',
+			top: [-300, -30],
+			duration: 4500
+		});
 
-	// Drop Text Title
- 	anime({
- 		targets: '.title1 h1 span',
- 		translateY: [-200, 0],
- 		duration: 2000,
- 		delay: (el, i) => {
- 			return i * 100;
- 		}
- 	});
+		anime({
+			targets: 'img#co',
+			top: [-300,0],
+			rotate: [180,-30],
+			duration: 2000,
+			complete: (e) => {
+				anime({
+					targets:'img.my',
+					rotate: '1turn',
+					duration: 3000
+				})
+				$('.my').animate({opacity: '1'}, 2000);
+				$('.contain-first .ballon:nth-child(1)').addClass('fadeInLeft');
+				$('.contain-first .ballon:nth-child(3)').addClass('fadeInRight');
+				setTimeout(()=>{
+					$('.contain-first .ballon:nth-child(1)').removeClass('fadeInLeft').css('opacity','1');
+					$('.contain-first .ballon:nth-child(3)').removeClass('fadeInRight').css('opacity','1');
+					$('.cake').addClass('fadeInUp');
+					anime({
+						targets:'.contain-first .ballon',
+						rotate: [-10, 10],
+						duration: 1000,
+						direction: 'alternate',
+						easing: 'linear',
+						loop: true
+					})
+				}, 500)
+			}
+		})
 
- 	// Drop Button Down
- 	anime({
- 		targets: '#getdown1',
- 		opacity: [0, 1],
- 		translateY: [-50, 0],
- 		duration: 2000,
- 		loop: true
- 	})
-
- 	// After 2s Change Text Color 
- 	setTimeout(() => {
- 		anime({
-	 		targets: '.title1 h1 span',
+		// Drop Button Down
+	 	anime({
+	 		targets: '#getdown1',
+	 		opacity: [0, 1],
+	 		translateY: [-50, 0],
 	 		duration: 2000,
-	 		color: ['#E67B7B', '#5174F8' , '#B25EF9', '#fff'],
-	 		delay: (el, i) => {
-	 			return i * 100;
-	 		},
 	 		loop: true
-	 	});
- 	}, 2000);
+	 	})
+
+	 	// Rotate Image HBPD
+	 	setTimeout(()=>{
+			anime({
+				targets: 'img#table',
+				rotate: [5, -5],
+				duration: 1000,
+				direction: 'alternate',
+				easing: 'linear',
+				loop: true
+			})
+		}, 2000)
+	 }, 8000)
 
 	var myElement = document.getElementById("scrollMonitor"),
 		elementWatcher = scrollMonitor.create( myElement ),
@@ -101,6 +120,31 @@ $(document).ready(function(){
 				var room = document.getElementById('room');
 				room.src = room.dataset.src;
 				isIframe = 1;
+			}
+		}
+	})
+
+	$('.toggle').on({
+		mouseleave: function(){
+			$(this).animate({left:'-70px'},500)
+		},
+		mouseover: function(){
+			$(this).animate({left:'-10px'},500)
+		},
+		click: function(){
+			$('#toggle').toggleClass('on');
+			if(!$('#toggle').hasClass('on')){
+				$('.fireworks').css('z-index','-1');
+			}else{
+				$('.fireworks').css('z-index','1');
+				Swal.fire({
+					type: 'info',
+					title: 'Click To Shot!!',
+					showConfirmButton: false,
+					timer: 2000,
+					animation: false,
+					customClass: 'animated zoomIn'
+				})
 			}
 		}
 	})

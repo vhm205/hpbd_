@@ -16,66 +16,39 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/animate-min.css">
 	<link rel="stylesheet" type="text/css" href="./css/direction-reveal-min.css">
+	<link rel="stylesheet" type="text/css" href="./css/sweetalert2.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/style2.css">
 </head>
 <body>
-	<section class="fireworks">	
-		<canvas id="canvas">Canvas is not supported in your browser.</canvas>
-	</section>
+	
 
 	<!-- Part 1 -->
 	<div class="container-fluid page1">
+		<section class="fireworks">	
+			<canvas id="canvas">Canvas is not supported in your browser.</canvas>
+		</section>
+		<img src="./images/another/ballon/co.png" id="co" alt="Image Cờ">
+		<img src="./images/another/ballon/table_hpbd.png" id="table" alt="Image Table">
 		<div class="row">
-			<div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-10 m-auto">
-				<div class="contain-box">
-					<div class="card border-danger mb-3">
-					  <div class="card-header text-dark title title1"> 
-					  	<h1>Happy Birthday To My</h1>
-					  </div>
-					  <div class="card-body">
-					    <h4 class="card-title">
-					    	<span class="badge badge-success">HM</span>
-					    	<i class="fa fa-heartbeat"></i>
-							<span class="badge badge-danger">TM</span>
-					    	&nbsp 
-					    </h4>
-					    <div class="card-text text-left">
-					    	<div class="content">
-					    		<div class="wow bounceInLeft">
-					    			<img data-tilt class="img-fluid img-thumbnail" src="./images/TM/24.jpg" alt="TM" align="left">
-					    		</div>
-						    	<p class="text wow fadeInUp">
-						    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						    	</p>
-					    	</div>
-					    </div>
-					    <h4 class="card-title">
-					    	<button class="btn-move" id="getdown1">
-					    		<img src="./images/another/arrow_down_white.svg" alt="Icon Arrow Down">
-					    	</button>
-					    </h4>
-					  </div>
+			<div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 m-auto">
+				<div class="contain-first">
+					<img src="./images/another/ballon/ballon_3.png" alt="Ballon" class="ballon float-left animated">
+					<div class="contain-important float-left">
+						<img data-tilt src="./images/TM/24.jpg" alt="Image My" class="my img-thumbnail animated">
+						<img src="./images/another/ballon/hpbd_title3.png" alt="Image Cake" class="cake animated">
 					</div>
+			    	<img src="./images/another/ballon/ballon_3.png" alt="Ballon" class="ballon float-right animated">
+			    	<div class="clearfix"></div>
 				</div>
 			</div>
 		</div>
+		<div class="toggle">
+			<div id="toggle"></div>
+		</div>
+		<img src="./images/another/ballon/Balloon-Border.png" alt="Ballon Border" id="ballon_border">
+		<button class="btn-move btn-down" id="getdown1">
+    		<i class="fa fa-angle-double-down"></i>
+    	</button>
 	</div>
 	
 
@@ -198,15 +171,17 @@
 	  <strong>Will always be waiting for you!</strong>
 	</div>
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="./js/tilt.jquery.min.js"></script>
-	<script type="text/javascript" src="./js/fireworks.js"></script>
-	<script type="text/javascript" src="./js/particles-min.js"></script>
-	<script type="text/javascript" src="./js/app-min.js"></script>
-	<script type="text/javascript" src="./js/bundle-min.js"></script>
-	<script type="text/javascript" src="./js/wow.min.js"></script>
-	<script type="text/javascript" src="./js/scrollMonitor.js"></script>
-	<script type="text/javascript" src="./js/anime.min.js"></script>
-	<script type="text/javascript" src="./js/jvs2.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="./js/tilt.jquery.min.js"></script>
+	<script src="./js/fireworks.js"></script>
+	<script src="./js/particles-min.js"></script>
+	<script src="./js/app-min.js"></script>
+	<script src="./js/bundle-min.js"></script>
+	<script src="./js/wow.min.js"></script>
+	<script src="./js/scrollMonitor.js"></script>
+	<script src="./js/anime.min.js"></script>
+	<script src="./js/sweetalert2.min.js"></script>
+	<script src="./js/jvs2.js"></script>
+	<noscript>Your Browser does not support Javascript</noscript>
 </body>
 </html>
