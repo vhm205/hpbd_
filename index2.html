@@ -27,25 +27,33 @@
 		<section class="fireworks">	
 			<canvas id="canvas">Canvas is not supported in your browser.</canvas>
 		</section>
-		<img src="./images/another/ballon/co.png" id="co" alt="Image Cờ">
-		<img src="./images/another/ballon/table_hpbd.png" id="table" alt="Image Table">
+		<div class="contain-button-question">
+			<button class="button-effect animated">Một chút bong bóng...</button>
+			<button class="button-effect animated">...thêm cái bánh kem nho nhỏ </button>
+			<button class="button-effect animated">Ra được bé My! <i class="fa fa-heart" style="color: red"></i>
+			</button>
+		</div>
+		<img src="./images/another/co.png" id="co" alt="Image Cờ">
+		<img src="./images/another/table_hpbd.png" id="table" alt="Image Table">
 		<div class="row">
 			<div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 m-auto">
 				<div class="contain-first">
-					<img src="./images/another/ballon/ballon_3.png" alt="Ballon" class="ballon float-left animated">
+					<img data-src="./images/another/ballon.png" alt="Ballon" class="ballon float-left animated">
 					<div class="contain-important float-left">
-						<img data-tilt src="./images/TM/24.jpg" alt="Image My" class="my img-thumbnail animated">
-						<img src="./images/another/ballon/hpbd_title3.png" alt="Image Cake" class="cake animated">
+						<img data-tilt data-src="./images/TM/24.jpg" alt="Image My" class="my js-tilt img-thumbnail animated">
+						<img data-src="./images/another/hpbd_title.png" alt="Image Cake" class="cake animated">
 					</div>
-			    	<img src="./images/another/ballon/ballon_3.png" alt="Ballon" class="ballon float-right animated">
+			    	<img data-src="./images/another/ballon.png" alt="Ballon" class="ballon float-right animated">
 			    	<div class="clearfix"></div>
 				</div>
 			</div>
 		</div>
 		<div class="toggle">
-			<div id="toggle"></div>
+			<label id="lbtoggle">
+			  <input type="checkbox" id="toggle">
+			</label>
 		</div>
-		<img src="./images/another/ballon/Balloon-Border.png" alt="Ballon Border" id="ballon_border">
+		<img data-src="./images/another/Balloon-Border.png" alt="Ballon Border" id="ballon_border">
 		<button class="btn-move btn-down" id="getdown1">
     		<i class="fa fa-angle-double-down"></i>
     	</button>
@@ -164,11 +172,19 @@
 				</div>
 			</div>
 		</div>
-		<!-- <h1 align="center"> --><img class="avatar wow lightSpeedIn" data-src="./images/TM/transparent1.png" alt="Avatar My"><!-- </h1> -->
+		<div class="contain-avatar">
+			<img class="avatar wow jackInTheBox" data-wow-delay="2s" data-src="./images/TM/transparent1.png" alt="Avatar My">
+		</div>
 	</div>
 	<div class="alert alert-dismissible alert-success">
 	  <button type="button" class="close close-mess">&times;</button>
 	  <strong>Will always be waiting for you!</strong>
+	</div>
+	<div id="contain-audio">
+		<audio id="audio" loop>
+			<source id="audio-source" src="./audio/hpbd.mp3" type="audio/mp3">
+			Your browser does not support the audio element.
+		</audio>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

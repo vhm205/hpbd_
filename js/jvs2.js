@@ -6,70 +6,117 @@ $(document).ready(function(){
 		if(img[index].getAttribute('alt') == "www.000webhost.com")
 			img[index].style.display = 'none';
 	}
-
 	new WOW().init();
-	$('#ballon_border').animate({bottom:'10000px'},50000)
+	$('.js-tilt').tilt({ scale: 1.2 })
+	anime({
+		targets: 'img#table',
+		top: [-300, -30],
+		duration: 4500
+	});
 
-	setTimeout(() => {
-		// Drop Table
-		anime({
-			targets: 'img#table',
-			top: [-300, -30],
-			duration: 4500
-		});
+	anime({
+		targets: 'img#table',
+		rotate: [5, -5],
+		duration: 1000,
+		direction: 'alternate',
+		easing: 'linear',
+		loop: true
+	})
 
-		anime({
-			targets: 'img#co',
-			top: [-300,0],
-			rotate: [180,-30],
-			duration: 2000,
-			complete: (e) => {
+	anime({
+		targets: 'img#co',
+		top: [-300,0],
+		rotate: [180,-30],
+		duration: 2000,
+		complete: function(e){
+			$('.contain-button-question .button-effect:nth-of-type(1)').css('display','block');
+			$('.contain-button-question .button-effect:nth-of-type(1)').addClass('fadeInDown');
+		}
+	})
+
+	anime({
+ 		targets: '#getdown1',
+ 		opacity: [0, 1],
+ 		translateY: [-50, 0],
+ 		duration: 2000,
+ 		loop: true
+ 	})
+
+ 	function playAudio(id){
+ 		document.getElementById(id).play();
+ 	}
+
+	$('.contain-button-question .button-effect:nth-of-type(1)').click(function(){
+		$(this).css('display', 'none');
+		let ballon_border = document.getElementById('ballon_border');
+		ballon_border.src = ballon_border.dataset.src;
+		$('#ballon_border').animate({bottom:'5000px'},30000);
+		setTimeout(()=>{
+			let ballon = document.querySelectorAll('.contain-first .ballon');
+			ballon[0].src = ballon[0].dataset.src;
+			ballon[1].src = ballon[1].dataset.src;
+			$('.contain-first .ballon:nth-child(1)').addClass('fadeInLeft');
+			$('.contain-first .ballon:nth-child(3)').addClass('fadeInRight');
+			setTimeout(()=>{
+				$('.contain-first .ballon:nth-child(1)').removeClass('fadeInLeft').css('opacity','1');
+				$('.contain-first .ballon:nth-child(3)').removeClass('fadeInRight').css('opacity','1');
 				anime({
-					targets:'img.my',
-					rotate: '1turn',
-					duration: 3000
+					targets:'.contain-first .ballon',
+					rotate: [-10, 10],
+					duration: 1000,
+					direction: 'alternate',
+					easing: 'linear',
+					loop: true
 				})
-				$('.my').animate({opacity: '1'}, 2000);
-				$('.contain-first .ballon:nth-child(1)').addClass('fadeInLeft');
-				$('.contain-first .ballon:nth-child(3)').addClass('fadeInRight');
-				setTimeout(()=>{
-					$('.contain-first .ballon:nth-child(1)').removeClass('fadeInLeft').css('opacity','1');
-					$('.contain-first .ballon:nth-child(3)').removeClass('fadeInRight').css('opacity','1');
-					$('.cake').addClass('fadeInUp');
-					anime({
-						targets:'.contain-first .ballon',
-						rotate: [-10, 10],
-						duration: 1000,
-						direction: 'alternate',
-						easing: 'linear',
-						loop: true
-					})
-				}, 500)
-			}
-		})
-
-		// Drop Button Down
-	 	anime({
-	 		targets: '#getdown1',
-	 		opacity: [0, 1],
-	 		translateY: [-50, 0],
-	 		duration: 2000,
-	 		loop: true
-	 	})
-
-	 	// Rotate Image HBPD
-	 	setTimeout(()=>{
-			anime({
-				targets: 'img#table',
-				rotate: [5, -5],
-				duration: 1000,
-				direction: 'alternate',
-				easing: 'linear',
-				loop: true
-			})
+				$('.contain-button-question .button-effect:nth-of-type(2)').css('display','block');
+				$('.contain-button-question .button-effect:nth-of-type(2)').addClass('fadeInDown');
+			}, 4000)
+		}, 7000)
+	});
+	$('.contain-button-question .button-effect:nth-of-type(2)').click(function(){
+		$(this).css('display', 'none');
+		let cake = document.querySelector('.contain-important img.cake');
+		cake.src = cake.dataset.src;
+		$('.cake').addClass('fadeInUp');
+		setTimeout(()=>{
+			$('.contain-button-question .button-effect:nth-of-type(3)').css('display','block');
+			$('.contain-button-question .button-effect:nth-of-type(3)').addClass('fadeInDown');
 		}, 2000)
-	 }, 8000)
-
+	});
+	$('.contain-button-question .button-effect:nth-of-type(3)').click(function(){
+		$(this).css('opacity', '0');
+		$(this).css('display', 'none');
+		let my = document.querySelector('.contain-important img.my');
+		my.src = my.dataset.src;
+		anime({
+			targets:'img.my',
+			rotate: '2turn',
+			delay: 500,
+			duration: 3000
+		})
+		$('.my').animate({opacity: '1'}, 2000);
+		$('#getdown1 i').css('opacity','1');
+		setTimeout(()=>{
+			Swal.fire({
+				type: 'question',
+				title: 'Do you want a song?',
+				showCancelButton: true,
+				confirmButtonText: 'Yeah!!'
+			}).then((res) => {
+				if(res.value){
+					Swal.fire({
+						type: 'success',
+						title: 'Audio is playing',
+						showConfirmButton: false,
+						timer: 1500
+					})
+					playAudio('audio');
+				}
+			});
+			$('.toggle').animate({left:'-10px'},500)
+		}, 3000)
+	});
+	
 	var myElement = document.getElementById("scrollMonitor"),
 		elementWatcher = scrollMonitor.create( myElement ),
 		isIframe = isMessage = 0;
@@ -126,24 +173,24 @@ $(document).ready(function(){
 
 	$('.toggle').on({
 		mouseleave: function(){
-			$(this).animate({left:'-70px'},500)
+			$(this).animate({left:'-170px'},500)
 		},
 		mouseover: function(){
 			$(this).animate({left:'-10px'},500)
 		},
 		click: function(){
 			$('#toggle').toggleClass('on');
-			if(!$('#toggle').hasClass('on')){
+			if(!$('#toggle').is(':checked')){
 				$('.fireworks').css('z-index','-1');
 			}else{
 				$('.fireworks').css('z-index','1');
 				Swal.fire({
-					type: 'info',
+					type: 'success',
 					title: 'Click To Shot!!',
 					showConfirmButton: false,
 					timer: 2000,
 					animation: false,
-					customClass: 'animated zoomIn'
+					customClass: 'animated zoomInUp'
 				})
 			}
 		}
