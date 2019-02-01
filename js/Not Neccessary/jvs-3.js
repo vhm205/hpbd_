@@ -5,10 +5,8 @@
         lenImg = img.length,
         isOpenVd = 1;
     for (var index = 0; index < lenImg; index++) {
-        if(img[index].getAttribute('alt') == "www.000webhost.com"){
+        if(img[index].getAttribute('alt') == "www.000webhost.com")
             img[index].style.display = 'none';
-            return 0;
-        }
     }
 
     document.getElementById('a-video').addEventListener('click', function(e){

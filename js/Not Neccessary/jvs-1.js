@@ -2,60 +2,54 @@ $(document).ready(function() {
     'use stricts';
     var l = document.getElementsByClassName('letter')[0],
         icon = document.getElementsByClassName('material-icons')[0],
+        audio = document.getElementById('audio-typing'),
         welcome = document.getElementsByClassName('welcome')[0],
         img = document.getElementsByTagName('img'),
         lenImg = img.length;
     for (var index = 0; index < lenImg; index++) {
         if (img[index].getAttribute('alt') == "www.000webhost.com") {
-            img[index].style.display = 'none';
-            return 0;
+            img[index].style.display = 'none'
         }
-    }
-    function playAudio(id){
-        document.getElementById(id).play();
-    }
-    function pauseAudio(id){
-        document.getElementById(id).pause();
     }
     setTimeout(function() {
         welcome.style.opacity = '0';
         $('.img').addClass('bounceInDown');
         setTimeout(() => {
             welcome.style.display = 'none';
-            playAudio('audio-typing');
+            audio.play();
             var typed = new Typed('.typing', {
                 strings: ["Chào cậu! cô gái 18..."],
                 typeSpeed: 50,
                 backSpeed: 100,
                 smartBackspace: !0,
                 onComplete: (self) => {
-                    pauseAudio('audio-typing');
+                    audio.pause()
                 }
             });
             setTimeout(() => {
                 document.querySelector('.text span:nth-child(2)').style.display = 'none';
-                playAudio('audio-typing');
+                audio.play();
                 var typed = new Typed('.typing2', {
-                    strings: ["Tớ có món quà muốn tặng cậu..."],
+                    strings: ["Tớ có một vài lời chúc mừng sinh nhật cậu... 🎁"],
                     typeSpeed: 50,
                     backSpeed: 100,
                     smartBackspace: !0,
                     startDelay: 50,
                     onComplete: (self) => {
-                        pauseAudio('audio-typing');
+                        audio.pause()
                     }
                 });
                 setTimeout(() => {
                     document.querySelector('.text span:nth-child(4)').nextElementSibling.style.display = 'none';
-                    playAudio('audio-typing');
+                    audio.play();
                     var typed = new Typed('.typing3', {
-                        strings: ["Nhấn vào lá thư để xem nhé..."],
+                        strings: ["Nhấn vào lá thư để đọc nhé..."],
                         typeSpeed: 50,
                         backSpeed: 100,
                         smartBackspace: !0,
                         startDelay: 50,
                         onComplete: (self) => {
-                            pauseAudio('audio-typing');
+                            audio.pause()
                         }
                     });
                     setTimeout(() => {

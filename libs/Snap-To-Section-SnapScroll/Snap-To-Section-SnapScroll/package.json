@@ -1,0 +1,19 @@
+{
+  "name": "snapscroll",
+  "version": "1.2.1",
+  "description": "jQuery plugin which auto-snaps to elements while scrolling",
+  "main": "index.js",
+  "scripts": {
+	"test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+	"type": "git",
+	"url": "git+https://github.com/koga73/SnapScroll.git"
+  },
+  "author": "AJ Savino",
+  "license": "MIT",
+  "bugs": {
+	"url": "https://github.com/koga73/SnapScroll/issues"
+  },
+  "homepage": "https://github.com/koga73/SnapScroll#readme"
+}

@@ -3,9 +3,12 @@ $(document).ready(function(){
 	var img = document.getElementsByTagName('img'),
 		lenImg = img.length;
 	for (var index = 0; index < lenImg; index++) {
-		if(img[index].getAttribute('alt') == "www.000webhost.com")
+		if(img[index].getAttribute('alt') == "www.000webhost.com"){
 			img[index].style.display = 'none';
+			return 0;
+		}
 	}
+
 	new WOW().init();
 	$('.js-tilt').tilt({ scale: 1.2 })
 	anime({
@@ -45,6 +48,9 @@ $(document).ready(function(){
  	function playAudio(id){
  		document.getElementById(id).play();
  	}
+ 	function pauseAudio(id){
+ 		document.getElementById(id).pause();
+ 	}
 
 	$('.contain-button-question .button-effect:nth-of-type(1)').click(function(){
 		$(this).css('display', 'none');
@@ -68,9 +74,11 @@ $(document).ready(function(){
 					easing: 'linear',
 					loop: true
 				})
+			}, 4000);
+			setTimeout(()=>{
 				$('.contain-button-question .button-effect:nth-of-type(2)').css('display','block');
 				$('.contain-button-question .button-effect:nth-of-type(2)').addClass('fadeInDown');
-			}, 4000)
+			}, 3000)
 		}, 7000)
 	});
 	$('.contain-button-question .button-effect:nth-of-type(2)').click(function(){
@@ -84,7 +92,6 @@ $(document).ready(function(){
 		}, 2000)
 	});
 	$('.contain-button-question .button-effect:nth-of-type(3)').click(function(){
-		$(this).css('opacity', '0');
 		$(this).css('display', 'none');
 		let my = document.querySelector('.contain-important img.my');
 		my.src = my.dataset.src;
@@ -98,10 +105,11 @@ $(document).ready(function(){
 		$('#getdown1 i').css('opacity','1');
 		setTimeout(()=>{
 			Swal.fire({
-				type: 'question',
-				title: 'Do you want a song?',
+				type: 'info',
+				title: 'Happy Birthday To My',
 				showCancelButton: true,
-				confirmButtonText: 'Yeah!!'
+				confirmButtonText: 'Yeah! :)',
+				cancelButtonText: 'Sad! :('
 			}).then((res) => {
 				if(res.value){
 					Swal.fire({
@@ -152,7 +160,7 @@ $(document).ready(function(){
 							$('svg path#path_message').css('fill', '#4f41c1');
 							setTimeout(() => {
 								$('.message').addClass('fadeInUp');
-							}, 1000)
+							}, 750)
 						}, 200)
 					}
 				})
@@ -167,6 +175,9 @@ $(document).ready(function(){
 				var room = document.getElementById('room');
 				room.src = room.dataset.src;
 				isIframe = 1;
+				setTimeout(()=>{
+					$('.volume').css('opacity','1')
+				}, 2500)
 			}
 		}
 	})
@@ -183,7 +194,7 @@ $(document).ready(function(){
 			if(!$('#toggle').is(':checked')){
 				$('.fireworks').css('z-index','-1');
 			}else{
-				$('.fireworks').css('z-index','1');
+				$('.fireworks').css('z-index','5');
 				Swal.fire({
 					type: 'success',
 					title: 'Click To Shot!!',
@@ -194,6 +205,19 @@ $(document).ready(function(){
 				})
 			}
 		}
+	})
+
+	$('.icon-volume').click(function(){
+		let icon = document.getElementsByClassName('icon-volume')[0];
+        if(icon.classList.item(2) == 'fa-volume-up'){
+            icon.classList.remove('fa-volume-up');
+            icon.classList.add('fa-volume-mute');
+            pauseAudio('audio');
+        }else{
+            icon.classList.remove('fa-volume-mute');
+            icon.classList.add('fa-volume-up');
+            playAudio('audio');
+        }
 	})
 
  	$('.btn-gift').click(function(){

@@ -4,17 +4,17 @@
 }
 ::selection
 {
-	background: #a29bfe;
+	background: #fd79a8;
 	color: #fff;
 }
 ::-webkit-selection
 {
-	background: #a29bfe;
+	background: #fd79a8;
 	color: #fff;
 }
 ::-moz-selection
 {
-	background: #a29bfe;
+	background: #fd79a8;
 	color: #fff;
 }
 ::-webkit-scrollbar{
@@ -34,48 +34,9 @@ body, html {
 	padding: 0;
 	margin: 0;
 	background: #292929;
-	overflow-y: auto;
 	overflow-x: hidden;
+	overflow-y: auto;
 }
-.alert{
-	position: fixed;
-	padding: 0;
-	margin: 0;
-	bottom: -70px;
-	width: 100%;
-	height: 70px;
-	border: none;
-	border-radius: 0;
-	text-align: center;
-	display: flex;
-	display: -webkit-flex;
-	display: -moz-flex;
-	justify-content: center;
-	align-items: center;
-	background: rgba(0,0,0,.8);
-	z-index: 1000;
-}
-.alert strong{
-	color: #fff;
-	font-size: 30px;
-	font-family: 'Charm', cursive;
-	border-bottom: 5px dashed #18BDE6
-}
-.alert-link{
-	text-decoration: none;
-	outline: none;
-	border: none;
-	background: transparent;
-	transition: .5s ease;
-	cursor: pointer;
-}
-.alert-link img{
-	width: 35px;
-	object-fit: cover;
-	-webkit-object-fit: cover;
-	margin-left: 10px;
-}
-.alert-link:hover{ opacity: .7; }
 .page1,
 .page2,
 .page3,
@@ -95,9 +56,34 @@ body, html {
 }
 .page1 { 
 	z-index: 4;
-	background: pink;
 	background: rgb(0,0,0, .1);
+	transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+  	transform: perspective(1000px);
+  	-webkit-transform: perspective(1000px);
+  	-moz-transform: perspective(1000px);
 	overflow: hidden;
+}
+.page1:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-top: 100vh solid transparent;
+	border-left: 100vh solid #fff;
+	opacity: .1;
+	z-index: -1;
+}
+.page1:after{
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-top: 100vh solid transparent;
+	border-right: 100vh solid #fff;
+	opacity: .1;
+	z-index: -1;
 }
 .page2{
 	padding-bottom: 100px;
@@ -142,6 +128,45 @@ body, html {
 	overflow: hidden; 
 }
 .page4 button i{ color: #000; }
+.alert{
+	position: fixed;
+	padding: 0;
+	margin: 0;
+	bottom: -70px;
+	width: 100%;
+	height: 70px;
+	border: none;
+	border-radius: 0;
+	text-align: center;
+	display: flex;
+	display: -webkit-flex;
+	display: -moz-flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0,0,0,.8);
+	z-index: 1000;
+}
+.alert strong{
+	color: #fff;
+	font-size: 30px;
+	font-family: 'Charm', cursive;
+	border-bottom: 5px dashed #18BDE6
+}
+.alert-link{
+	text-decoration: none;
+	outline: none;
+	border: none;
+	background: transparent;
+	transition: .5s ease;
+	cursor: pointer;
+}
+.alert-link img{
+	width: 35px;
+	object-fit: cover;
+	-webkit-object-fit: cover;
+	margin-left: 10px;
+}
+.alert-link:hover{ opacity: .7; }
 .title
 {
 	font-size: 40px;
@@ -276,17 +301,17 @@ img.icon
 {
 	position: absolute;
 	color: #fff;
-	font-size: 30px;
+	font-size: 35px;
 	font-weight: bold;
-	top: 50px;
-	left: calc(100% - 90%);
+	top: 70px;
+	left: calc(100% - 85%);
 	opacity: 0;
 	font-family: 'Charm', cursive;
 	transition: opacity .2s ease;
 }
 .message span { display: block; }
-.btn-down{ bottom: 0; }
-.btn-up{ top: 0; }
+.btn-down{ bottom: 5px; }
+.btn-up{ top: 5px; }
 .btn-move,
 .btn-move:focus,
 .btn-move:active
@@ -486,6 +511,28 @@ input:checked[type="checkbox"]::after {
 	top: 5px; 
 	position: relative; 
 }
+.btn-move i{
+	font-size: 30px;
+}
+.volume{
+	position: absolute;
+	right: 30px;
+	top: 40px;
+	opacity: 0;
+	transition: .2s ease;
+	z-index: 10;
+}
+.volume i.icon-volume{
+	color: #000;
+	font-size: 30px;
+	width: 1.5em;
+	height: 1.5em;
+	cursor: pointer;
+	transition: .1s ease
+}
+.volume i.icon-volume:hover{
+	color: #c2292e;
+}
 #co,#table,#room,#particles-js,canvas#heart,#ballon_border{
 	position: absolute;
 }
@@ -599,7 +646,7 @@ canvas#canvas {
 	.message-responsive span
 	{
 		display: block;
-		font-size: 20px;
+		font-size: 25px;
 		color: #fff;
 		font-family: 'Charm', cursive;
 	}
@@ -626,4 +673,5 @@ canvas#canvas {
 
 @media (max-width: 375px) {
 	.avatar { width: 300px }
+	.message-responsive span{ font-size: 20px }
 }
