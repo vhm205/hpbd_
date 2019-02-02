@@ -7,7 +7,7 @@
     for (var index = 0; index < lenImg; index++) {
         if(img[index].getAttribute('alt') == "www.000webhost.com"){
             img[index].style.display = 'none';
-            return 0;
+            break;
         }
     }
 

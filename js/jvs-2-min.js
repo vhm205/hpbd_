@@ -5,10 +5,10 @@ $(document).ready(function(){
 	for (var index = 0; index < lenImg; index++) {
 		if(img[index].getAttribute('alt') == "www.000webhost.com"){
 			img[index].style.display = 'none';
-			return 0;
+			break;
 		}
 	}
-
+	
 	new WOW().init();
 	$('.js-tilt').tilt({ scale: 1.2 })
 	anime({
@@ -58,9 +58,6 @@ $(document).ready(function(){
 		ballon_border.src = ballon_border.dataset.src;
 		$('#ballon_border').animate({bottom:'5000px'},30000);
 		setTimeout(()=>{
-			let ballon = document.querySelectorAll('.contain-first .ballon');
-			ballon[0].src = ballon[0].dataset.src;
-			ballon[1].src = ballon[1].dataset.src;
 			$('.contain-first .ballon:nth-child(1)').addClass('fadeInLeft');
 			$('.contain-first .ballon:nth-child(3)').addClass('fadeInRight');
 			setTimeout(()=>{
@@ -83,8 +80,6 @@ $(document).ready(function(){
 	});
 	$('.contain-button-question .button-effect:nth-of-type(2)').click(function(){
 		$(this).css('display', 'none');
-		let cake = document.querySelector('.contain-important img.cake');
-		cake.src = cake.dataset.src;
 		$('.cake').addClass('fadeInUp');
 		setTimeout(()=>{
 			$('.contain-button-question .button-effect:nth-of-type(3)').css('display','block');
@@ -108,8 +103,8 @@ $(document).ready(function(){
 				type: 'info',
 				title: 'Happy Birthday To My',
 				showCancelButton: true,
-				confirmButtonText: 'Yeah! :)',
-				cancelButtonText: 'Sad! :('
+				confirmButtonText: 'Happy :)',
+				cancelButtonText: 'Sad :('
 			}).then((res) => {
 				if(res.value){
 					Swal.fire({
