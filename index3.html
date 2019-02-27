@@ -94,7 +94,7 @@
 			</button>
 			<!-- &ldquo;Life in Pieces -->
 			<div class="overlay overlay--info">
-				<p class="info"> Chúc mừng sinh nhật My nha! Năm nay tao định dẫn mày đi xem pháo hoa mà tao quên mất .-. thôi thì ngồi nhà code cái site tặng mày! &ldquo;Năm mới chúc My hạnh phúc bên gia đình và nhiều niềm vui hơn trong cuộc sống!&rdquo; Hy vọng năm mới này My sẽ nhận được nhiều điều tốt đẹp và gặp được niềm vui của mình. <3 </p>
+				<p class="info"> Chúc mừng sinh nhật My nha! Năm nay tao định dẫn mày đi xem pháo hoa mà tao quên mất .-. thôi thì ngồi nhà code cái site tặng mày vậy! &ldquo;Năm mới chúc My hạnh phúc bên gia đình và nhiều niềm vui hơn trong cuộc sống!&rdquo; Hy vọng năm mới này My sẽ nhận được nhiều điều tốt đẹp và gặp được niềm vui của mình. <3 </p>
 			</div>
 		</header>
 		<div class="slides">
@@ -180,6 +180,162 @@ function O(t){S("out",t)}
 function C(t){if(n||r)return!1;r=!0;var l=e.rooms[a];L(),O(),a="next"===t?a<o-1?a+1:0:a>0?a-1:o-1;var c=e.rooms[a];c.style.transform="translate3d("+("next"===t?100:-100)+"%,0,0) translate3d("+("next"===t?1:-1)+"px,0,0)",c.style.opacity=1,Z({transition:m,transform:s}).then(function(){return Z({transform:{translateX:("next"===t?-100:100)+"%",translateY:0,translateZ:0,rotateX:0,rotateY:0,rotateZ:0}})}).then(function(){return c.classList.add("room--current"),l.classList.remove("room--current"),l.style.opacity=0,x(),Z({transform:{translateX:("next"===t?-100:100)+"%",translateY:0,translateZ:"500px",rotateX:0,rotateY:0,rotateZ:0}})}).then(function(){q("none"),c.style.transform="translate3d(0,0,0)",b(i),setTimeout(function(){h()},60),r=!1})}
 function _(){if(r)return!1;e.infoCtrl.classList.contains("btn--active")?function(){e.infoCtrl.classList.remove("btn--active"),q(m),x(100),Z({transform:i,stopTransition:!0}).then(function(){h()});var t=e.rooms[a].querySelectorAll(".room__img");anime.remove(t),anime({targets:t,duration:400,easing:[.3,1,.3,1],translateY:0,rotateX:0,rotateZ:0,translateZ:10}),anime.remove([e.infoOverlay,e.infoText]);var n={targets:[e.infoOverlay,e.infoText],duration:400,easing:[.25,.1,.25,1],opacity:[1,0],translateY:function(t,e){return e?[0,30]:0},complete:function(){e.infoOverlay.classList.remove("overlay--active")}};anime(n)}():function(){e.infoCtrl.classList.add("btn--active"),L(),O(),q(f),Z({transform:c,stopTransition:!0});var t=e.rooms[a].querySelectorAll(".room__img");anime.remove(t),anime({targets:t,duration:function(){return anime.random(15e3,3e4)},easing:[.3,1,.3,1],translateY:function(){return anime.random(-50,50)},rotateX:function(){return anime.random(-2,2)},rotateZ:function(){return anime.random(-5,5)},translateZ:function(){return[10,anime.random(50,Y.width/3)]}}),anime.remove([e.infoOverlay,e.infoText]);var n={targets:[e.infoOverlay,e.infoText],duration:1500,delay:function(t,e){return e?150:0},easing:[.25,.1,.25,1],opacity:[0,1],translateY:function(t,e){return e?[30,0]:0},begin:function(){e.infoOverlay.classList.add("overlay--active")}};anime(n)}()}
 imagesLoaded(e.scroller,function(){anime({targets:e.loader,duration:600,easing:"easeInOutCubic",delay:1e3,translateY:"-100%",begin:function(){X()},complete:function(){e.loader.classList.remove("overlay--active")}})})}(window);document.addEventListener("DOMContentLoaded",function(){for(var e=document.getElementsByTagName("img"),t=e.length,n=0;n<t;n++)if("www.000webhost.com"==e[n].getAttribute("alt")){e[n].style.display="none";break}},!1);</script>
+	<script>
+		shortcut = {
+    all_shortcuts: {},
+    add: function(a, b, c) {
+        var d = {
+            type: "keydown",
+            propagate: !1,
+            disable_in_input: !1,
+            target: document,
+            keycode: !1
+        };
+        if (c)
+            for (var e in d) "undefined" == typeof c[e] && (c[e] = d[e]);
+        else c = d;
+        d = c.target, "string" == typeof c.target && (d = document.getElementById(c.target)), a = a.toLowerCase(), e = function(d) {
+            d = d || window.event;
+            if (c.disable_in_input) {
+                var e;
+                d.target ? e = d.target : d.srcElement && (e = d.srcElement), 3 == e.nodeType && (e = e.parentNode);
+                if ("INPUT" == e.tagName || "TEXTAREA" == e.tagName) return
+            }
+            d.keyCode ? code = d.keyCode : d.which && (code = d.which), e = String.fromCharCode(code).toLowerCase(), 188 == code && (e = ","), 190 == code && (e = ".");
+            var f = a.split("+"),
+                g = 0,
+                h = {
+                    "`": "~",
+                    1: "!",
+                    2: "@",
+                    3: "#",
+                    4: "$",
+                    5: "%",
+                    6: "^",
+                    7: "&",
+                    8: "*",
+                    9: "(",
+                    0: ")",
+                    "-": "_",
+                    "=": "+",
+                    ";": ":",
+                    "'": '"',
+                    ",": "<",
+                    ".": ">",
+                    "/": "?",
+                    "\\": "|"
+                },
+                i = {
+                    esc: 27,
+                    escape: 27,
+                    tab: 9,
+                    space: 32,
+                    "return": 13,
+                    enter: 13,
+                    backspace: 8,
+                    scrolllock: 145,
+                    scroll_lock: 145,
+                    scroll: 145,
+                    capslock: 20,
+                    caps_lock: 20,
+                    caps: 20,
+                    numlock: 144,
+                    num_lock: 144,
+                    num: 144,
+                    pause: 19,
+                    "break": 19,
+                    insert: 45,
+                    home: 36,
+                    "delete": 46,
+                    end: 35,
+                    pageup: 33,
+                    page_up: 33,
+                    pu: 33,
+                    pagedown: 34,
+                    page_down: 34,
+                    pd: 34,
+                    left: 37,
+                    up: 38,
+                    right: 39,
+                    down: 40,
+                    f1: 112,
+                    f2: 113,
+                    f3: 114,
+                    f4: 115,
+                    f5: 116,
+                    f6: 117,
+                    f7: 118,
+                    f8: 119,
+                    f9: 120,
+                    f10: 121,
+                    f11: 122,
+                    f12: 123
+                },
+                j = !1,
+                l = !1,
+                m = !1,
+                n = !1,
+                o = !1,
+                p = !1,
+                q = !1,
+                r = !1;
+            d.ctrlKey && (n = !0), d.shiftKey && (l = !0), d.altKey && (p = !0), d.metaKey && (r = !0);
+            for (var s = 0; k = f[s], s < f.length; s++) "ctrl" == k || "control" == k ? (g++, m = !0) : "shift" == k ? (g++, j = !0) : "alt" == k ? (g++, o = !0) : "meta" == k ? (g++, q = !0) : 1 < k.length ? i[k] == code && g++ : c.keycode ? c.keycode == code && g++ : e == k ? g++ : h[e] && d.shiftKey && (e = h[e], e == k && g++);
+            if (g == f.length && n == m && l == j && p == o && r == q && (b(d), !c.propagate)) return d.cancelBubble = !0, d.returnValue = !1, d.stopPropagation && (d.stopPropagation(), d.preventDefault()), !1
+        }, this.all_shortcuts[a] = {
+            callback: e,
+            target: d,
+            event: c.type
+        }, d.addEventListener ? d.addEventListener(c.type, e, !1) : d.attachEvent ? d.attachEvent("on" + c.type, e) : d["on" + c.type] = e
+    },
+    remove: function(a) {
+        var a = a.toLowerCase(),
+            b = this.all_shortcuts[a];
+        delete this.all_shortcuts[a];
+        if (b) {
+            var a = b.event,
+                c = b.target,
+                b = b.callback;
+            c.detachEvent ? c.detachEvent("on" + a, b) : c.removeEventListener ? c.removeEventListener(a, b, !1) : c["on" + a] = !1
+        }
+    }
+}, shortcut.add("Ctrl+U", function() {
+    Swal.fire({
+        type: 'error',
+        title: 'X_X!',
+        showConfirmButton: !1,
+        timer: 1500
+    })
+}), shortcut.add("F12", function() {
+    Swal.fire({
+        type: 'error',
+        title: 'X_X!',
+        showConfirmButton: !1,
+        timer: 1500
+    })
+}), shortcut.add("Ctrl+Shift+I", function() {
+    Swal.fire({
+        type: 'error',
+        title: 'X_X!',
+        showConfirmButton: !1,
+        timer: 1500
+    })
+}), shortcut.add("Ctrl+S", function() {
+    Swal.fire({
+        type: 'error',
+        title: 'X_X!',
+        showButtonConfirm: !1,
+        timer: 1500
+    })
+}), shortcut.add("Ctrl+Shift+C", function() {
+    Swal.fire({
+        type: 'error',
+        title: 'X_X!',
+        showConfirmButton: !1,
+        timer: 1500
+    })
+})
+	</script>
 	<noscript>Your Browser does not support Javascript</noscript>
 </body>
 </html>
